@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CSCI_463_ODMS_Project
 {
-    public partial class Form1 : Form
+    public partial class navigationSidebar : UserControl
     {
-        public Form1()
+        public navigationSidebar()
         {
             InitializeComponent();
         }
