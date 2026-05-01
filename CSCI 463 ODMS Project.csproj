@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAccountForm.Designer.cs">
+      <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoctorDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateAccountForm.resx">
+      <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoctorDashboardForm.resx">
       <DependentUpon>DoctorDashboardForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace CSCI_463_ODMS_Project
 {
     public partial class Login : Form
     {
+        private const string UsersFilePath = "users.txt";
+
         public Login()
         {
             InitializeComponent();
@@ -19,15 +15,63 @@ namespace CSCI_463_ODMS_Project
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            MainDashboard dashboard = new MainDashboard();
+            string enteredUser = username.Text.Trim();
+            string enteredPass = password.Text.Trim();
+
+            if (!File.Exists(UsersFilePath))
+            {
+                MessageBox.Show("No user accounts found. Please register first.");
+                return;
+            }
+
+            try
+            {
+                foreach (string line in File.ReadLines(UsersFilePath))
+                {
+                    string[] parts = line.Split(',');
+
+                    if (parts.Length >= 5)
+                    {
+                        string savedUser = parts[0];
+                        string savedPass = parts[1];
+                        string firstName = parts[2];
+                        string role = parts[4];
+
+                        if (enteredUser == savedUser && enteredPass == savedPass)
+                        {
+                            OpenDashboard(role, firstName);
+                            return;
+                        }
+                    }
+                }
+
+                MessageBox.Show("Incorrect username or password", "Login Failed");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"System error: {ex.Message}");
+            }
+        }
+
+        private void OpenDashboard(string role, string name)
+        {
+            MainDashboard dashboard = new MainDashboard(name, role);
 
             dashboard.StartPosition = FormStartPosition.Manual;
             dashboard.Location = this.Location;
             dashboard.Size = this.Size;
-
             dashboard.WindowState = this.WindowState;
 
             dashboard.Show();
+            this.Hide();
+        }
+
+        private void createAccountButton_Click(object sender, EventArgs e)
+        {
+            CreateAccountForm createAccount = new CreateAccountForm();
+            createAccount.StartPosition = FormStartPosition.Manual;
+            createAccount.Location = this.Location;
+            createAccount.Show();
             this.Hide();
         }
     }

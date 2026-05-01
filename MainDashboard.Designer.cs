@@ -56,6 +56,7 @@
             this.Controls.Add(this.navigationSidebar1);
             this.Name = "MainDashboard";
             this.Text = "MainDashboard";
+            this.Load += new System.EventHandler(this.MainDashboard_Load);
             this.ResumeLayout(false);
 
         }
