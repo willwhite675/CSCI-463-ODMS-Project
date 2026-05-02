@@ -26,7 +26,6 @@ namespace CSCI_463_ODMS_Project
             string password = passwordInput.Text.Trim();
             string firstName = firstNameInput.Text.Trim();
             string lastName = lastNameInput.Text.Trim();
-
             string role = roleSelectionBox.SelectedItem?.ToString();
 
             if (string.IsNullOrWhiteSpace(username) ||
@@ -37,10 +36,22 @@ namespace CSCI_463_ODMS_Project
                 return;
             }
 
-            string userData = $"{username},{password},{firstName},{lastName},{role}";
-
             try
             {
+                if (File.Exists(UsersFilePath))
+                {
+                    foreach (string line in File.ReadLines(UsersFilePath))
+                    {
+                        string[] parts = line.Split(',');
+                        if (parts.Length > 0 && parts[0].Equals(username, StringComparison.OrdinalIgnoreCase))
+                        {
+                            MessageBox.Show("This username is already taken. Please choose another.", "Account Conflict");
+                            return;
+                        }
+                    }
+                }
+
+                string userData = $"{username},{password},{firstName},{lastName},{role}";
                 File.AppendAllText(UsersFilePath, userData + Environment.NewLine);
 
                 MessageBox.Show("Account successfully created!", "Success");
