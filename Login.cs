@@ -55,7 +55,14 @@ namespace CSCI_463_ODMS_Project
 
         private void OpenDashboard(string role, string name)
         {
-            MainDashboard dashboard = new MainDashboard(name, role);
+            Form dashboard;
+            switch (role)
+            {
+                case "Doctor":        dashboard = new DoctorDashboardForm(name, role);  break;
+                case "Nurse":         dashboard = new NurseDashboardForm(name, role);   break;
+                case "Administrator": dashboard = new AdminDashboardForm(name, role);   break;
+                default:              dashboard = new MainDashboard(name, role);         break;
+            }
 
             dashboard.StartPosition = FormStartPosition.Manual;
             dashboard.Location = this.Location;
