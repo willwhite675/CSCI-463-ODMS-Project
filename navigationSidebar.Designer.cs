@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.alertNavButton = new System.Windows.Forms.Button();
+            this.prescriptionsNavButton = new System.Windows.Forms.Button();
             this.profileNavButton = new System.Windows.Forms.Button();
             this.logoutNavButton = new System.Windows.Forms.Button();
             this.medicationSearchNavButton = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             this.panel1.Controls.Add(this.auditNavButton);
             this.panel1.Controls.Add(this.inventoryNavButton);
             this.panel1.Controls.Add(this.alertNavButton);
+            this.panel1.Controls.Add(this.prescriptionsNavButton);
             this.panel1.Controls.Add(this.profileNavButton);
             this.panel1.Controls.Add(this.logoutNavButton);
             this.panel1.Controls.Add(this.medicationSearchNavButton);
@@ -66,9 +68,20 @@
             this.alertNavButton.TabIndex = 4;
             this.alertNavButton.Text = "Alerts";
             this.alertNavButton.UseVisualStyleBackColor = true;
-            // 
+            //
+            // prescriptionsNavButton
+            //
+            this.prescriptionsNavButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.prescriptionsNavButton.Location = new System.Drawing.Point(0, 140);
+            this.prescriptionsNavButton.Name = "prescriptionsNavButton";
+            this.prescriptionsNavButton.Size = new System.Drawing.Size(200, 70);
+            this.prescriptionsNavButton.TabIndex = 8;
+            this.prescriptionsNavButton.Text = "Prescriptions";
+            this.prescriptionsNavButton.UseVisualStyleBackColor = true;
+            this.prescriptionsNavButton.Click += new System.EventHandler(this.prescriptionsNavButton_Click);
+            //
             // profileNavButton
-            // 
+            //
             this.profileNavButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.profileNavButton.Location = new System.Drawing.Point(0, 460);
             this.profileNavButton.Name = "profileNavButton";
@@ -154,6 +167,7 @@
 
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button patientSearchNavButton;
+        public System.Windows.Forms.Button prescriptionsNavButton;
         public System.Windows.Forms.Button logoutNavButton;
         public System.Windows.Forms.Button medicationSearchNavButton;
         public System.Windows.Forms.Button profileNavButton;

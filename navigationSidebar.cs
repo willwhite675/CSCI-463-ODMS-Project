@@ -13,6 +13,7 @@ namespace CSCI_463_ODMS_Project
     public partial class navigationSidebar : UserControl
     {
         public event EventHandler LogoutRequested;
+        public event EventHandler PrescriptionsRequested;
 
         public navigationSidebar()
         {
@@ -23,11 +24,18 @@ namespace CSCI_463_ODMS_Project
         {
             LogoutRequested?.Invoke(this, EventArgs.Empty);
         }
+
+        private void prescriptionsNavButton_Click(object sender, EventArgs e)
+        {
+            PrescriptionsRequested?.Invoke(this, EventArgs.Empty);
+        }
+
         public void SetupRoleBasedNavigation(string role)
         {
             patientSearchNavButton.Visible = false;
             medicationSearchNavButton.Visible = false;
             alertNavButton.Visible = false;
+            prescriptionsNavButton.Visible = false;
             inventoryNavButton.Visible = false;
             userManagementNavButton.Visible = false;
             auditNavButton.Visible = false;
@@ -37,6 +45,7 @@ namespace CSCI_463_ODMS_Project
                 case "Doctor":
                     patientSearchNavButton.Visible = true;
                     medicationSearchNavButton.Visible = true;
+                    prescriptionsNavButton.Visible = true;
                     alertNavButton.Visible = true;
                     break;
 
