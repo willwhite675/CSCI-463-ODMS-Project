@@ -12,9 +12,16 @@ namespace CSCI_463_ODMS_Project
 {
     public partial class navigationSidebar : UserControl
     {
+        public event EventHandler LogoutRequested;
+
         public navigationSidebar()
         {
             InitializeComponent();
+        }
+
+        private void logoutNavButton_Click(object sender, EventArgs e)
+        {
+            LogoutRequested?.Invoke(this, EventArgs.Empty);
         }
         public void SetupRoleBasedNavigation(string role)
         {

@@ -55,33 +55,22 @@ namespace CSCI_463_ODMS_Project
 
         private void OpenDashboard(string role, string name)
         {
-
-            if (role == "Nurse")
+            Form dashboard;
+            switch (role)
             {
-                NurseDashboardForm nurseDashboard = new NurseDashboardForm();
-                nurseDashboard.StartPosition = FormStartPosition.Manual;
-                nurseDashboard.Location = this.Location;
-                nurseDashboard.Size = this.Size;
-                nurseDashboard.WindowState = this.WindowState;
+                case "Doctor":        dashboard = new DoctorDashboardForm(name, role);  break;
+                case "Nurse":         dashboard = new NurseDashboardForm(name, role);   break;
+                case "Administrator": dashboard = new AdminDashboardForm(name, role);   break;
+                default:              dashboard = new MainDashboard(name, role);         break;
+            }
 
-                nurseDashboard.Show();
-                this.Hide();
-            }
-            else if (role == "Doctor") 
-            { 
-                DoctorDashboardForm doctorDashboard = new DoctorDashboardForm();
-                doctorDashboard.StartPosition = FormStartPosition.Manual;
-                doctorDashboard.Location = this.Location;
-                doctorDashboard.Size = this.Size;
-                doctorDashboard.WindowState = this.WindowState;
+            dashboard.StartPosition = FormStartPosition.Manual;
+            dashboard.Location = this.Location;
+            dashboard.Size = this.Size;
+            dashboard.WindowState = this.WindowState;
 
-                doctorDashboard.Show();
-                this.Hide();
-            }
-            else if (role == "Administrator") 
-            {
-                
-            }
+            dashboard.Show();
+            this.Hide();
         }
 
         private void createAccountButton_Click(object sender, EventArgs e)

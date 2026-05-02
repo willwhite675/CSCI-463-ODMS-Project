@@ -86,6 +86,7 @@
             this.logoutNavButton.TabIndex = 2;
             this.logoutNavButton.Text = "Logout";
             this.logoutNavButton.UseVisualStyleBackColor = true;
+            this.logoutNavButton.Click += new System.EventHandler(this.logoutNavButton_Click);
             // 
             // medicationSearchNavButton
             // 
