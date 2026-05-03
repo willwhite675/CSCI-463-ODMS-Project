@@ -70,6 +70,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="mainAdminPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="mainAdminPage.Designer.cs">
+      <DependentUpon>mainAdminPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainDoctorPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainAdminPage.resx">
+      <DependentUpon>mainAdminPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainDoctorPage.resx">
       <DependentUpon>mainDoctorPage.cs</DependentUpon>

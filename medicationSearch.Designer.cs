@@ -81,6 +81,11 @@
             // 
             this.nmbrMaxDosage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nmbrMaxDosage.Location = new System.Drawing.Point(181, 75);
+            this.nmbrMaxDosage.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nmbrMaxDosage.Name = "nmbrMaxDosage";
             this.nmbrMaxDosage.Size = new System.Drawing.Size(300, 26);
             this.nmbrMaxDosage.TabIndex = 9;

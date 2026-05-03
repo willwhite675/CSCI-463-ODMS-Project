@@ -18,8 +18,24 @@ namespace CSCI_463_ODMS_Project
         private void NurseDashboardForm_Load(object sender, EventArgs e)
         {
             this.Text = $"ODMS - Nurse Dashboard ({_userName})";
+
             navigationSidebar1.SetupRoleBasedNavigation(_userRole);
+
             navigationSidebar1.LogoutRequested += (s, ev) => { new Login().Show(); this.Close(); };
+
+            navigationSidebar1.MedicationsRequested += (s, ev) =>
+            {
+                contentPanel.Controls.Clear();
+                var meds = new medicationSearch(_userRole);
+                meds.Dock = DockStyle.Fill;
+                contentPanel.Controls.Add(meds);
+            };
+
+            navigationSidebar1.HomeRequested += (s, ev) =>
+            {
+                contentPanel.Controls.Clear();
+            };
+
         }
     }
 }

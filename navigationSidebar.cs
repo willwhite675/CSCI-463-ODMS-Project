@@ -58,7 +58,6 @@ namespace CSCI_463_ODMS_Project
                     patientSearchNavButton.Visible = true;
                     medicationSearchNavButton.Visible = true;
                     prescriptionsNavButton.Visible = true;
-                    alertNavButton.Visible = true;
                     break;
 
                 case "Nurse":
@@ -70,6 +69,7 @@ namespace CSCI_463_ODMS_Project
                     inventoryNavButton.Visible = true;
                     userManagementNavButton.Visible = true;
                     auditNavButton.Visible = true;
+                    medicationSearchNavButton.Visible = true;
                     break;
             }
 

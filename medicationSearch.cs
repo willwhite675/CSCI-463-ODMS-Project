@@ -10,11 +10,15 @@ namespace CSCI_463_ODMS_Project
     public partial class medicationSearch : UserControl
     {
         private string _medsFile;
+        private string _userRole;
 
-        public medicationSearch()
+        public medicationSearch(string role)
         {
             InitializeComponent();
+            _userRole = role;
             _medsFile = Path.Combine(Application.StartupPath, "medications.txt");
+
+            grpNewMedication.Visible = (_userRole == "Administrator");
 
             SetupGrid();
             LoadMedications();

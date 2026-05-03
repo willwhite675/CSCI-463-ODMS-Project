@@ -21,12 +21,12 @@ namespace CSCI_463_ODMS_Project
             this.txtInstructions = new System.Windows.Forms.TextBox();
             this.lblInstructions = new System.Windows.Forms.Label();
             this.lblDosage = new System.Windows.Forms.Label();
-            this.txtMedication = new System.Windows.Forms.TextBox();
             this.lblMedication = new System.Windows.Forms.Label();
             this.txtPatient = new System.Windows.Forms.TextBox();
             this.lblPatient = new System.Windows.Forms.Label();
             this.lblHistory = new System.Windows.Forms.Label();
             this.dgvPrescriptions = new System.Windows.Forms.DataGridView();
+            this.comboBoxMedication = new System.Windows.Forms.ComboBox();
             this.grpNewPrescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmbrDosage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrescriptions)).BeginInit();
@@ -34,12 +34,13 @@ namespace CSCI_463_ODMS_Project
             // 
             // grpNewPrescription
             // 
+            this.grpNewPrescription.BackColor = System.Drawing.Color.Transparent;
+            this.grpNewPrescription.Controls.Add(this.comboBoxMedication);
             this.grpNewPrescription.Controls.Add(this.nmbrDosage);
             this.grpNewPrescription.Controls.Add(this.btnSubmit);
             this.grpNewPrescription.Controls.Add(this.txtInstructions);
             this.grpNewPrescription.Controls.Add(this.lblInstructions);
             this.grpNewPrescription.Controls.Add(this.lblDosage);
-            this.grpNewPrescription.Controls.Add(this.txtMedication);
             this.grpNewPrescription.Controls.Add(this.lblMedication);
             this.grpNewPrescription.Controls.Add(this.txtPatient);
             this.grpNewPrescription.Controls.Add(this.lblPatient);
@@ -53,6 +54,11 @@ namespace CSCI_463_ODMS_Project
             // nmbrDosage
             // 
             this.nmbrDosage.Location = new System.Drawing.Point(160, 122);
+            this.nmbrDosage.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nmbrDosage.Name = "nmbrDosage";
             this.nmbrDosage.Size = new System.Drawing.Size(300, 26);
             this.nmbrDosage.TabIndex = 9;
@@ -69,6 +75,7 @@ namespace CSCI_463_ODMS_Project
             // 
             // txtInstructions
             // 
+            this.txtInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtInstructions.Location = new System.Drawing.Point(160, 161);
             this.txtInstructions.Multiline = true;
             this.txtInstructions.Name = "txtInstructions";
@@ -93,13 +100,6 @@ namespace CSCI_463_ODMS_Project
             this.lblDosage.TabIndex = 6;
             this.lblDosage.Text = "Dosage:";
             // 
-            // txtMedication
-            // 
-            this.txtMedication.Location = new System.Drawing.Point(160, 77);
-            this.txtMedication.Name = "txtMedication";
-            this.txtMedication.Size = new System.Drawing.Size(300, 26);
-            this.txtMedication.TabIndex = 1;
-            // 
             // lblMedication
             // 
             this.lblMedication.AutoSize = true;
@@ -111,6 +111,7 @@ namespace CSCI_463_ODMS_Project
             // 
             // txtPatient
             // 
+            this.txtPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPatient.Location = new System.Drawing.Point(160, 35);
             this.txtPatient.Name = "txtPatient";
             this.txtPatient.Size = new System.Drawing.Size(300, 26);
@@ -146,6 +147,14 @@ namespace CSCI_463_ODMS_Project
             this.dgvPrescriptions.Size = new System.Drawing.Size(960, 290);
             this.dgvPrescriptions.TabIndex = 1;
             // 
+            // comboBoxMedication
+            // 
+            this.comboBoxMedication.FormattingEnabled = true;
+            this.comboBoxMedication.Location = new System.Drawing.Point(160, 77);
+            this.comboBoxMedication.Name = "comboBoxMedication";
+            this.comboBoxMedication.Size = new System.Drawing.Size(300, 28);
+            this.comboBoxMedication.TabIndex = 10;
+            // 
             // PrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -170,7 +179,6 @@ namespace CSCI_463_ODMS_Project
         private System.Windows.Forms.Label lblPatient;
         private System.Windows.Forms.TextBox txtPatient;
         private System.Windows.Forms.Label lblMedication;
-        private System.Windows.Forms.TextBox txtMedication;
         private System.Windows.Forms.Label lblDosage;
         private System.Windows.Forms.Label lblInstructions;
         private System.Windows.Forms.TextBox txtInstructions;
@@ -178,5 +186,6 @@ namespace CSCI_463_ODMS_Project
         private System.Windows.Forms.Label lblHistory;
         private System.Windows.Forms.DataGridView dgvPrescriptions;
         private System.Windows.Forms.NumericUpDown nmbrDosage;
+        private System.Windows.Forms.ComboBox comboBoxMedication;
     }
 }

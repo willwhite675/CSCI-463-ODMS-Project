@@ -35,11 +35,11 @@ namespace CSCI_463_ODMS_Project
             navigationSidebar1.MedicationsRequested += (s, ev) =>
             {
                 contentPanel.Controls.Clear();
-                var form = new medicationSearch();
-                form.Dock = DockStyle.Fill;
-                contentPanel.Controls.Add(form);
+                var meds = new medicationSearch(_userRole);
+                meds.Dock = DockStyle.Fill;
+                contentPanel.Controls.Add(meds);
             };
-            
+
             ShowHome();
         }
 
