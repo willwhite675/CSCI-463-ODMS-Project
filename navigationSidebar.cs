@@ -14,6 +14,8 @@ namespace CSCI_463_ODMS_Project
     {
         public event EventHandler LogoutRequested;
         public event EventHandler PrescriptionsRequested;
+        public event EventHandler HomeRequested;
+        public event EventHandler MedicationsRequested;
 
         public navigationSidebar()
         {
@@ -28,6 +30,16 @@ namespace CSCI_463_ODMS_Project
         private void prescriptionsNavButton_Click(object sender, EventArgs e)
         {
             PrescriptionsRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void homeNavButton_Click(object sender, EventArgs e)
+        {
+            HomeRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void medicationSearchNavButton_Click(object sender, EventArgs e)
+        {
+            MedicationsRequested?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetupRoleBasedNavigation(string role)
@@ -63,6 +75,9 @@ namespace CSCI_463_ODMS_Project
 
             profileNavButton.Visible = true;
             logoutNavButton.Visible = true;
+            homeNavButton.Visible = true;
         }
+
+        
     }
 }

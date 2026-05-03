@@ -19,13 +19,36 @@ namespace CSCI_463_ODMS_Project
         {
             this.Text = $"ODMS - Doctor Dashboard ({_userName})";
             navigationSidebar1.SetupRoleBasedNavigation(_userRole);
+
             navigationSidebar1.LogoutRequested += (s, ev) => { new Login().Show(); this.Close(); };
+
+            navigationSidebar1.HomeRequested += (s, ev) => ShowHome();
+
             navigationSidebar1.PrescriptionsRequested += (s, ev) =>
             {
                 contentPanel.Controls.Clear();
-                var prescription = new PrescriptionForm(_userName);
-                contentPanel.Controls.Add(prescription);
+                var form = new PrescriptionForm(_userName);
+                form.Dock = DockStyle.Fill;
+                contentPanel.Controls.Add(form);
             };
+
+            navigationSidebar1.MedicationsRequested += (s, ev) =>
+            {
+                contentPanel.Controls.Clear();
+                var form = new medicationSearch();
+                form.Dock = DockStyle.Fill;
+                contentPanel.Controls.Add(form);
+            };
+            
+            ShowHome();
+        }
+
+        private void ShowHome()
+        {
+            contentPanel.Controls.Clear();
+            var home = new mainDoctorPage(_userName);
+            home.Dock = DockStyle.Fill;
+            contentPanel.Controls.Add(home);
         }
     }
 }

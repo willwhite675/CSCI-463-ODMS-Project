@@ -55,22 +55,27 @@ namespace CSCI_463_ODMS_Project
 
         private void OpenDashboard(string role, string name)
         {
-            Form dashboard;
+            Form dashboard = null;
             switch (role)
             {
                 case "Doctor":        dashboard = new DoctorDashboardForm(name, role);  break;
                 case "Nurse":         dashboard = new NurseDashboardForm(name, role);   break;
                 case "Administrator": dashboard = new AdminDashboardForm(name, role);   break;
-                default:              dashboard = new MainDashboard(name, role);         break;
             }
+            if (dashboard == null)
+            {
+                MessageBox.Show($"System error, try again.");
+            }
+            else
+            {
+                dashboard.StartPosition = FormStartPosition.Manual;
+                dashboard.Location = this.Location;
+                dashboard.Size = this.Size;
+                dashboard.WindowState = this.WindowState;
 
-            dashboard.StartPosition = FormStartPosition.Manual;
-            dashboard.Location = this.Location;
-            dashboard.Size = this.Size;
-            dashboard.WindowState = this.WindowState;
-
-            dashboard.Show();
-            this.Hide();
+                dashboard.Show();
+                this.Hide();
+            }
         }
 
         private void createAccountButton_Click(object sender, EventArgs e)

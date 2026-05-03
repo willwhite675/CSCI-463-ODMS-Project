@@ -70,11 +70,17 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainDashboard.cs">
-      <SubType>Form</SubType>
+    <Compile Include="mainDoctorPage.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainDashboard.Designer.cs">
-      <DependentUpon>MainDashboard.cs</DependentUpon>
+    <Compile Include="mainDoctorPage.Designer.cs">
+      <DependentUpon>mainDoctorPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="medicationSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="medicationSearch.Designer.cs">
+      <DependentUpon>medicationSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="navigationSidebar.cs">
       <SubType>UserControl</SubType>
@@ -108,8 +114,11 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainDashboard.resx">
-      <DependentUpon>MainDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="mainDoctorPage.resx">
+      <DependentUpon>mainDoctorPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="medicationSearch.resx">
+      <DependentUpon>medicationSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="navigationSidebar.resx">
       <DependentUpon>navigationSidebar.cs</DependentUpon>
