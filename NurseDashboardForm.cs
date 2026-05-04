@@ -33,9 +33,18 @@ namespace CSCI_463_ODMS_Project
 
             navigationSidebar1.HomeRequested += (s, ev) =>
             {
-                contentPanel.Controls.Clear();
+                ShowHome();
             };
 
+            ShowHome();
+        }
+
+        private void ShowHome()
+        {
+            contentPanel.Controls.Clear();
+            var home = new mainNursePage();
+            home.Dock = DockStyle.Fill;
+            contentPanel.Controls.Add(home);
         }
     }
 }

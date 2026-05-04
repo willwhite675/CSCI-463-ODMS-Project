@@ -73,11 +73,12 @@ namespace CSCI_463_ODMS_Project
             string patient = txtPatient.Text.Trim();
             string dosage = nmbrDosage.Value.ToString() + "mg";
             string instructions = txtInstructions.Text.Trim().Replace(",", ";");
-            string date = DateTime.Now.ToString("yyyy-MM-dd");
+            string issueDate = DateTime.Now.ToString("yyyy-MM-dd");
+            string expireDate = expirationDate.Value.ToString("yyyy-MM-dd");
 
             try
             {
-                string line = $"{_doctorName},{patient},{selectedMed},{dosage},{instructions},{date}";
+                string line = $"{_doctorName},{patient},{selectedMed},{dosage},{instructions},{issueDate},{expireDate}";
                 File.AppendAllText(_prescriptionsFile, line + Environment.NewLine);
 
                 if (_medicationLimits.ContainsKey(selectedMed))
@@ -86,7 +87,7 @@ namespace CSCI_463_ODMS_Project
 
                     if (nmbrDosage.Value > maxAllowed)
                     {
-                        string alertLine = $"{date},{_doctorName},{patient},{selectedMed},{dosage},Overprescription: {maxAllowed}mg";
+                        string alertLine = $"{issueDate},{_doctorName},{patient},{selectedMed},{dosage},Overprescription: {maxAllowed}mg";
                         File.AppendAllText(_alertsFile, alertLine + Environment.NewLine);
 
                         MessageBox.Show($"Warning: This dosage exceeds the maximum limit for {selectedMed} ({maxAllowed}mg). An alert has been logged.",
@@ -98,6 +99,7 @@ namespace CSCI_463_ODMS_Project
                 comboBoxMedication.SelectedIndex = -1;
                 nmbrDosage.Value = nmbrDosage.Minimum;
                 txtInstructions.Clear();
+                expirationDate.Value = DateTime.Now;
 
                 LoadPrescriptions();
             }
@@ -112,7 +114,8 @@ namespace CSCI_463_ODMS_Project
             dgvPrescriptions.Rows.Clear();
             dgvPrescriptions.Columns.Clear();
 
-            dgvPrescriptions.Columns.Add("Date", "Date");
+            dgvPrescriptions.Columns.Add("Date", "Issued");
+            dgvPrescriptions.Columns.Add("Expire", "Expires");
             dgvPrescriptions.Columns.Add("Patient", "Patient Name");
             dgvPrescriptions.Columns.Add("Medication", "Medication");
             dgvPrescriptions.Columns.Add("Dosage", "Dosage");
@@ -123,9 +126,10 @@ namespace CSCI_463_ODMS_Project
             foreach (string line in File.ReadAllLines(_prescriptionsFile))
             {
                 string[] parts = line.Split(',');
-                if (parts.Length >= 6 && parts[0] == _doctorName)
+
+                if (parts.Length >= 7 && parts[0] == _doctorName)
                 {
-                    dgvPrescriptions.Rows.Add(parts[5], parts[1], parts[2], parts[3], parts[4]);
+                    dgvPrescriptions.Rows.Add(parts[5], parts[6], parts[1], parts[2], parts[3], parts[4]);
                 }
             }
         }

@@ -41,16 +41,16 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblRecentHeader);
             this.panel1.Controls.Add(this.recentPrescriptions);
-            this.panel1.Location = new System.Drawing.Point(54, 63);
+            this.panel1.Location = new System.Drawing.Point(16, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(901, 301);
+            this.panel1.Size = new System.Drawing.Size(967, 301);
             this.panel1.TabIndex = 1;
             // 
             // lblRecentHeader
             // 
             this.lblRecentHeader.AutoSize = true;
             this.lblRecentHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecentHeader.Location = new System.Drawing.Point(340, -1);
+            this.lblRecentHeader.Location = new System.Drawing.Point(369, 0);
             this.lblRecentHeader.Name = "lblRecentHeader";
             this.lblRecentHeader.Size = new System.Drawing.Size(236, 29);
             this.lblRecentHeader.TabIndex = 1;
@@ -63,7 +63,7 @@
             this.recentPrescriptions.Name = "recentPrescriptions";
             this.recentPrescriptions.RowHeadersWidth = 62;
             this.recentPrescriptions.RowTemplate.Height = 28;
-            this.recentPrescriptions.Size = new System.Drawing.Size(901, 268);
+            this.recentPrescriptions.Size = new System.Drawing.Size(963, 268);
             this.recentPrescriptions.TabIndex = 0;
             // 
             // label1

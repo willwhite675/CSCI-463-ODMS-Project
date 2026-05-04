@@ -82,6 +82,12 @@
     <Compile Include="mainDoctorPage.Designer.cs">
       <DependentUpon>mainDoctorPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="mainNursePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="mainNursePage.Designer.cs">
+      <DependentUpon>mainNursePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="medicationSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mainDoctorPage.resx">
       <DependentUpon>mainDoctorPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainNursePage.resx">
+      <DependentUpon>mainNursePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="medicationSearch.resx">
       <DependentUpon>medicationSearch.cs</DependentUpon>

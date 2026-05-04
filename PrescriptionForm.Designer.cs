@@ -27,6 +27,8 @@ namespace CSCI_463_ODMS_Project
             this.lblHistory = new System.Windows.Forms.Label();
             this.dgvPrescriptions = new System.Windows.Forms.DataGridView();
             this.comboBoxMedication = new System.Windows.Forms.ComboBox();
+            this.lblExpiration = new System.Windows.Forms.Label();
+            this.expirationDate = new System.Windows.Forms.DateTimePicker();
             this.grpNewPrescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmbrDosage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrescriptions)).BeginInit();
@@ -35,6 +37,8 @@ namespace CSCI_463_ODMS_Project
             // grpNewPrescription
             // 
             this.grpNewPrescription.BackColor = System.Drawing.Color.Transparent;
+            this.grpNewPrescription.Controls.Add(this.expirationDate);
+            this.grpNewPrescription.Controls.Add(this.lblExpiration);
             this.grpNewPrescription.Controls.Add(this.comboBoxMedication);
             this.grpNewPrescription.Controls.Add(this.nmbrDosage);
             this.grpNewPrescription.Controls.Add(this.btnSubmit);
@@ -53,7 +57,7 @@ namespace CSCI_463_ODMS_Project
             // 
             // nmbrDosage
             // 
-            this.nmbrDosage.Location = new System.Drawing.Point(160, 122);
+            this.nmbrDosage.Location = new System.Drawing.Point(160, 82);
             this.nmbrDosage.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -65,7 +69,7 @@ namespace CSCI_463_ODMS_Project
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(160, 255);
+            this.btnSubmit.Location = new System.Drawing.Point(160, 244);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(180, 30);
             this.btnSubmit.TabIndex = 4;
@@ -76,7 +80,7 @@ namespace CSCI_463_ODMS_Project
             // txtInstructions
             // 
             this.txtInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInstructions.Location = new System.Drawing.Point(160, 161);
+            this.txtInstructions.Location = new System.Drawing.Point(160, 139);
             this.txtInstructions.Multiline = true;
             this.txtInstructions.Name = "txtInstructions";
             this.txtInstructions.Size = new System.Drawing.Size(300, 80);
@@ -85,7 +89,7 @@ namespace CSCI_463_ODMS_Project
             // lblInstructions
             // 
             this.lblInstructions.AutoSize = true;
-            this.lblInstructions.Location = new System.Drawing.Point(20, 164);
+            this.lblInstructions.Location = new System.Drawing.Point(20, 142);
             this.lblInstructions.Name = "lblInstructions";
             this.lblInstructions.Size = new System.Drawing.Size(96, 20);
             this.lblInstructions.TabIndex = 5;
@@ -94,7 +98,7 @@ namespace CSCI_463_ODMS_Project
             // lblDosage
             // 
             this.lblDosage.AutoSize = true;
-            this.lblDosage.Location = new System.Drawing.Point(20, 122);
+            this.lblDosage.Location = new System.Drawing.Point(20, 82);
             this.lblDosage.Name = "lblDosage";
             this.lblDosage.Size = new System.Drawing.Size(69, 20);
             this.lblDosage.TabIndex = 6;
@@ -103,7 +107,7 @@ namespace CSCI_463_ODMS_Project
             // lblMedication
             // 
             this.lblMedication.AutoSize = true;
-            this.lblMedication.Location = new System.Drawing.Point(20, 80);
+            this.lblMedication.Location = new System.Drawing.Point(489, 41);
             this.lblMedication.Name = "lblMedication";
             this.lblMedication.Size = new System.Drawing.Size(90, 20);
             this.lblMedication.TabIndex = 7;
@@ -150,10 +154,26 @@ namespace CSCI_463_ODMS_Project
             // comboBoxMedication
             // 
             this.comboBoxMedication.FormattingEnabled = true;
-            this.comboBoxMedication.Location = new System.Drawing.Point(160, 77);
+            this.comboBoxMedication.Location = new System.Drawing.Point(629, 38);
             this.comboBoxMedication.Name = "comboBoxMedication";
             this.comboBoxMedication.Size = new System.Drawing.Size(300, 28);
             this.comboBoxMedication.TabIndex = 10;
+            // 
+            // lblExpiration
+            // 
+            this.lblExpiration.AutoSize = true;
+            this.lblExpiration.Location = new System.Drawing.Point(489, 84);
+            this.lblExpiration.Name = "lblExpiration";
+            this.lblExpiration.Size = new System.Drawing.Size(87, 20);
+            this.lblExpiration.TabIndex = 11;
+            this.lblExpiration.Text = "Expiration: ";
+            // 
+            // expirationDate
+            // 
+            this.expirationDate.Location = new System.Drawing.Point(629, 82);
+            this.expirationDate.Name = "expirationDate";
+            this.expirationDate.Size = new System.Drawing.Size(300, 26);
+            this.expirationDate.TabIndex = 12;
             // 
             // PrescriptionForm
             // 
@@ -187,5 +207,7 @@ namespace CSCI_463_ODMS_Project
         private System.Windows.Forms.DataGridView dgvPrescriptions;
         private System.Windows.Forms.NumericUpDown nmbrDosage;
         private System.Windows.Forms.ComboBox comboBoxMedication;
+        private System.Windows.Forms.DateTimePicker expirationDate;
+        private System.Windows.Forms.Label lblExpiration;
     }
 }

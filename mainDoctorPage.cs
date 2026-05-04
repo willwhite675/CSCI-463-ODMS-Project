@@ -23,11 +23,15 @@ namespace CSCI_463_ODMS_Project
         {
             recentPrescriptions.Rows.Clear();
             recentPrescriptions.Columns.Clear();
-            recentPrescriptions.Columns.Add("Date", "Date");
+
+            recentPrescriptions.Columns.Add("Date", "Issued Date");
+            recentPrescriptions.Columns.Add("Expiration", "Expiration Date");
             recentPrescriptions.Columns.Add("Patient", "Patient Name");
             recentPrescriptions.Columns.Add("Medication", "Medication");
             recentPrescriptions.Columns.Add("Dosage", "Dosage");
             recentPrescriptions.Columns.Add("Instructions", "Instructions");
+
+            recentPrescriptions.Columns["Instructions"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         public void LoadData()
@@ -40,9 +44,17 @@ namespace CSCI_463_ODMS_Project
                 foreach (string line in File.ReadAllLines(_prescriptionsFile))
                 {
                     string[] parts = line.Split(',');
-                    if (parts.Length >= 6 && parts[0] == _userName)
+
+                    if (parts.Length >= 7 && parts[0] == _userName)
                     {
-                        recentPrescriptions.Rows.Add(parts[5], parts[1], parts[2], parts[3], parts[4]);
+                        recentPrescriptions.Rows.Add(
+                            parts[5],
+                            parts[6],
+                            parts[1],
+                            parts[2],
+                            parts[3],
+                            parts[4]
+                        );
                     }
                 }
             }
