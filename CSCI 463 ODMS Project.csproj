@@ -52,6 +52,12 @@
     <Compile Include="AdminDashboardForm.Designer.cs">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="auditPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="auditPage.Designer.cs">
+      <DependentUpon>auditPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="DoctorDashboardForm.Designer.cs">
       <DependentUpon>DoctorDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryPage.Designer.cs">
+      <DependentUpon>InventoryPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -106,6 +118,12 @@
     <Compile Include="NurseDashboardForm.Designer.cs">
       <DependentUpon>NurseDashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="patientSearchPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="patientSearchPage.Designer.cs">
+      <DependentUpon>patientSearchPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrescriptionForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -117,11 +135,17 @@
     <EmbeddedResource Include="AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="auditPage.resx">
+      <DependentUpon>auditPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAccountForm.resx">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctorDashboardForm.resx">
       <DependentUpon>DoctorDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryPage.resx">
+      <DependentUpon>InventoryPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -143,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NurseDashboardForm.resx">
       <DependentUpon>NurseDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="patientSearchPage.resx">
+      <DependentUpon>patientSearchPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrescriptionForm.resx">
       <DependentUpon>PrescriptionForm.cs</DependentUpon>

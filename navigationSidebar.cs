@@ -16,6 +16,9 @@ namespace CSCI_463_ODMS_Project
         public event EventHandler PrescriptionsRequested;
         public event EventHandler HomeRequested;
         public event EventHandler MedicationsRequested;
+        public event EventHandler InventoryRequested;
+        public event EventHandler AuditRequested;
+        public event EventHandler PatientRequested;
 
         public navigationSidebar()
         {
@@ -42,6 +45,21 @@ namespace CSCI_463_ODMS_Project
             MedicationsRequested?.Invoke(this, EventArgs.Empty);
         }
 
+        private void inventoryNavButton_Click(object sender, EventArgs e)
+        {
+            InventoryRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void auditNavButton_Click(object sender, EventArgs e)
+        {
+            AuditRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void patientSearchNavButton_Click(object sender, EventArgs e)
+        {
+            PatientRequested?.Invoke(this, EventArgs.Empty);
+        }
+
         public void SetupRoleBasedNavigation(string role)
         {
             patientSearchNavButton.Visible = false;
@@ -49,7 +67,6 @@ namespace CSCI_463_ODMS_Project
             alertNavButton.Visible = false;
             prescriptionsNavButton.Visible = false;
             inventoryNavButton.Visible = false;
-            userManagementNavButton.Visible = false;
             auditNavButton.Visible = false;
 
             switch (role)
@@ -67,17 +84,13 @@ namespace CSCI_463_ODMS_Project
 
                 case "Administrator":
                     inventoryNavButton.Visible = true;
-                    userManagementNavButton.Visible = true;
                     auditNavButton.Visible = true;
                     medicationSearchNavButton.Visible = true;
                     break;
             }
 
-            profileNavButton.Visible = true;
             logoutNavButton.Visible = true;
             homeNavButton.Visible = true;
         }
-
-        
     }
 }

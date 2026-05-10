@@ -30,15 +30,15 @@
         {
             this.lblHistory = new System.Windows.Forms.Label();
             this.dgvMedications = new System.Windows.Forms.DataGridView();
-            this.grpNewMedication = new System.Windows.Forms.GroupBox();
+            this.medicationSearchBox = new System.Windows.Forms.TextBox();
+            this.grpAddMedication = new System.Windows.Forms.GroupBox();
             this.nmbrMaxDosage = new System.Windows.Forms.NumericUpDown();
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.submit = new System.Windows.Forms.Button();
             this.lblDosage = new System.Windows.Forms.Label();
             this.txtMeds = new System.Windows.Forms.TextBox();
-            this.lblMeds = new System.Windows.Forms.Label();
-            this.medicationSearchBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedications)).BeginInit();
-            this.grpNewMedication.SuspendLayout();
+            this.grpAddMedication.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmbrMaxDosage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,19 +63,28 @@
             this.dgvMedications.Size = new System.Drawing.Size(960, 290);
             this.dgvMedications.TabIndex = 4;
             // 
-            // grpNewMedication
+            // medicationSearchBox
             // 
-            this.grpNewMedication.Controls.Add(this.nmbrMaxDosage);
-            this.grpNewMedication.Controls.Add(this.btnSubmit);
-            this.grpNewMedication.Controls.Add(this.lblDosage);
-            this.grpNewMedication.Controls.Add(this.txtMeds);
-            this.grpNewMedication.Controls.Add(this.lblMeds);
-            this.grpNewMedication.Location = new System.Drawing.Point(20, 21);
-            this.grpNewMedication.Name = "grpNewMedication";
-            this.grpNewMedication.Size = new System.Drawing.Size(960, 163);
-            this.grpNewMedication.TabIndex = 3;
-            this.grpNewMedication.TabStop = false;
-            this.grpNewMedication.Text = "Create New Medication";
+            this.medicationSearchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.medicationSearchBox.Location = new System.Drawing.Point(20, 337);
+            this.medicationSearchBox.Name = "medicationSearchBox";
+            this.medicationSearchBox.Size = new System.Drawing.Size(204, 26);
+            this.medicationSearchBox.TabIndex = 5;
+            this.medicationSearchBox.TextChanged += new System.EventHandler(this.medicationSearchBox_TextChanged);
+            // 
+            // grpAddMedication
+            // 
+            this.grpAddMedication.Controls.Add(this.nmbrMaxDosage);
+            this.grpAddMedication.Controls.Add(this.submit);
+            this.grpAddMedication.Controls.Add(this.lblDosage);
+            this.grpAddMedication.Controls.Add(this.txtMeds);
+            this.grpAddMedication.Controls.Add(this.label1);
+            this.grpAddMedication.Location = new System.Drawing.Point(20, 33);
+            this.grpAddMedication.Name = "grpAddMedication";
+            this.grpAddMedication.Size = new System.Drawing.Size(960, 163);
+            this.grpAddMedication.TabIndex = 8;
+            this.grpAddMedication.TabStop = false;
+            this.grpAddMedication.Text = "Add New Medication";
             // 
             // nmbrMaxDosage
             // 
@@ -90,15 +99,15 @@
             this.nmbrMaxDosage.Size = new System.Drawing.Size(300, 26);
             this.nmbrMaxDosage.TabIndex = 9;
             // 
-            // btnSubmit
+            // submit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(24, 117);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(180, 30);
-            this.btnSubmit.TabIndex = 4;
-            this.btnSubmit.Text = "Submit Medication";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.submit.Location = new System.Drawing.Point(24, 117);
+            this.submit.Name = "submit";
+            this.submit.Size = new System.Drawing.Size(180, 30);
+            this.submit.TabIndex = 4;
+            this.submit.Text = "Submit Medication";
+            this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
             // lblDosage
             // 
@@ -117,37 +126,28 @@
             this.txtMeds.Size = new System.Drawing.Size(300, 26);
             this.txtMeds.TabIndex = 0;
             // 
-            // lblMeds
+            // label1
             // 
-            this.lblMeds.AutoSize = true;
-            this.lblMeds.Location = new System.Drawing.Point(20, 38);
-            this.lblMeds.Name = "lblMeds";
-            this.lblMeds.Size = new System.Drawing.Size(136, 20);
-            this.lblMeds.TabIndex = 8;
-            this.lblMeds.Text = "Medication Name:";
-            // 
-            // medicationSearchBox
-            // 
-            this.medicationSearchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.medicationSearchBox.Location = new System.Drawing.Point(20, 337);
-            this.medicationSearchBox.Name = "medicationSearchBox";
-            this.medicationSearchBox.Size = new System.Drawing.Size(204, 26);
-            this.medicationSearchBox.TabIndex = 5;
-            this.medicationSearchBox.TextChanged += new System.EventHandler(this.medicationSearchBox_TextChanged);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Medication Name:";
             // 
             // medicationSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.grpAddMedication);
             this.Controls.Add(this.medicationSearchBox);
             this.Controls.Add(this.lblHistory);
             this.Controls.Add(this.dgvMedications);
-            this.Controls.Add(this.grpNewMedication);
             this.Name = "medicationSearch";
             this.Size = new System.Drawing.Size(1000, 692);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedications)).EndInit();
-            this.grpNewMedication.ResumeLayout(false);
-            this.grpNewMedication.PerformLayout();
+            this.grpAddMedication.ResumeLayout(false);
+            this.grpAddMedication.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmbrMaxDosage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,12 +158,12 @@
 
         private System.Windows.Forms.Label lblHistory;
         private System.Windows.Forms.DataGridView dgvMedications;
-        private System.Windows.Forms.GroupBox grpNewMedication;
+        private System.Windows.Forms.TextBox medicationSearchBox;
+        private System.Windows.Forms.GroupBox grpAddMedication;
         private System.Windows.Forms.NumericUpDown nmbrMaxDosage;
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button submit;
         private System.Windows.Forms.Label lblDosage;
         private System.Windows.Forms.TextBox txtMeds;
-        private System.Windows.Forms.Label lblMeds;
-        private System.Windows.Forms.TextBox medicationSearchBox;
+        private System.Windows.Forms.Label label1;
     }
 }

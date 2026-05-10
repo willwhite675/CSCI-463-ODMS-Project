@@ -30,14 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.homeNavButton = new System.Windows.Forms.Button();
-            this.userManagementNavButton = new System.Windows.Forms.Button();
             this.auditNavButton = new System.Windows.Forms.Button();
             this.inventoryNavButton = new System.Windows.Forms.Button();
             this.alertNavButton = new System.Windows.Forms.Button();
             this.prescriptionsNavButton = new System.Windows.Forms.Button();
             this.medicationSearchNavButton = new System.Windows.Forms.Button();
             this.patientSearchNavButton = new System.Windows.Forms.Button();
-            this.profileNavButton = new System.Windows.Forms.Button();
             this.logoutNavButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,14 +44,12 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel1.Controls.Add(this.homeNavButton);
-            this.panel1.Controls.Add(this.userManagementNavButton);
             this.panel1.Controls.Add(this.auditNavButton);
             this.panel1.Controls.Add(this.inventoryNavButton);
             this.panel1.Controls.Add(this.alertNavButton);
             this.panel1.Controls.Add(this.prescriptionsNavButton);
             this.panel1.Controls.Add(this.medicationSearchNavButton);
             this.panel1.Controls.Add(this.patientSearchNavButton);
-            this.panel1.Controls.Add(this.profileNavButton);
             this.panel1.Controls.Add(this.logoutNavButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -64,23 +60,13 @@
             // homeNavButton
             // 
             this.homeNavButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.homeNavButton.Location = new System.Drawing.Point(0, 490);
+            this.homeNavButton.Location = new System.Drawing.Point(0, 420);
             this.homeNavButton.Name = "homeNavButton";
             this.homeNavButton.Size = new System.Drawing.Size(200, 70);
             this.homeNavButton.TabIndex = 9;
             this.homeNavButton.Text = "Home";
             this.homeNavButton.UseVisualStyleBackColor = true;
             this.homeNavButton.Click += new System.EventHandler(this.homeNavButton_Click);
-            // 
-            // userManagementNavButton
-            // 
-            this.userManagementNavButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userManagementNavButton.Location = new System.Drawing.Point(0, 420);
-            this.userManagementNavButton.Name = "userManagementNavButton";
-            this.userManagementNavButton.Size = new System.Drawing.Size(200, 70);
-            this.userManagementNavButton.TabIndex = 7;
-            this.userManagementNavButton.Text = "User Management";
-            this.userManagementNavButton.UseVisualStyleBackColor = true;
             // 
             // auditNavButton
             // 
@@ -91,6 +77,7 @@
             this.auditNavButton.TabIndex = 6;
             this.auditNavButton.Text = "Audit";
             this.auditNavButton.UseVisualStyleBackColor = true;
+            this.auditNavButton.Click += new System.EventHandler(this.auditNavButton_Click);
             // 
             // inventoryNavButton
             // 
@@ -101,6 +88,7 @@
             this.inventoryNavButton.TabIndex = 5;
             this.inventoryNavButton.Text = "Inventory";
             this.inventoryNavButton.UseVisualStyleBackColor = true;
+            this.inventoryNavButton.Click += new System.EventHandler(this.inventoryNavButton_Click);
             // 
             // alertNavButton
             // 
@@ -143,16 +131,7 @@
             this.patientSearchNavButton.TabIndex = 0;
             this.patientSearchNavButton.Text = "Patient Search";
             this.patientSearchNavButton.UseVisualStyleBackColor = true;
-            // 
-            // profileNavButton
-            // 
-            this.profileNavButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.profileNavButton.Location = new System.Drawing.Point(0, 599);
-            this.profileNavButton.Name = "profileNavButton";
-            this.profileNavButton.Size = new System.Drawing.Size(200, 70);
-            this.profileNavButton.TabIndex = 3;
-            this.profileNavButton.Text = "Profile";
-            this.profileNavButton.UseVisualStyleBackColor = true;
+            this.patientSearchNavButton.Click += new System.EventHandler(this.patientSearchNavButton_Click);
             // 
             // logoutNavButton
             // 
@@ -184,10 +163,8 @@
         public System.Windows.Forms.Button prescriptionsNavButton;
         public System.Windows.Forms.Button logoutNavButton;
         public System.Windows.Forms.Button medicationSearchNavButton;
-        public System.Windows.Forms.Button profileNavButton;
         public System.Windows.Forms.Button alertNavButton;
         public System.Windows.Forms.Button inventoryNavButton;
-        public System.Windows.Forms.Button userManagementNavButton;
         public System.Windows.Forms.Button auditNavButton;
         public System.Windows.Forms.Button homeNavButton;
     }

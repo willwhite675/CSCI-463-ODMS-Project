@@ -9,22 +9,45 @@ namespace CSCI_463_ODMS_Project
 {
     public partial class medicationSearch : UserControl
     {
-        private string _medsFile;
+        private string _userName;
         private string _userRole;
+        private string _medsFile;
+        private string _inventoryFile;
+        private string _auditFile;
 
-        public medicationSearch(string role)
+        public medicationSearch(string name, string role)
         {
             InitializeComponent();
+            _userName = name;
             _userRole = role;
-            _medsFile = Path.Combine(Application.StartupPath, "medications.txt");
 
-            grpNewMedication.Visible = (_userRole == "Administrator");
+            _medsFile = Path.Combine(Application.StartupPath, "medications.txt");
+            _inventoryFile = Path.Combine(Application.StartupPath, "inventory.txt");
+            _auditFile = Path.Combine(Application.StartupPath, "audit.txt");
+
+            EnsureFilesExist();
+
+            grpAddMedication.Visible = (_userRole == "Administrator");
 
             SetupGrid();
             LoadMedications();
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private void EnsureFilesExist()
+        {
+            try
+            {
+                if (!File.Exists(_medsFile)) File.Create(_medsFile).Close();
+                if (!File.Exists(_inventoryFile)) File.Create(_inventoryFile).Close();
+                if (!File.Exists(_auditFile)) File.Create(_auditFile).Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error initializing data files: {ex.Message}", "System Error");
+            }
+        }
+
+        private void submit_Click(object sender, EventArgs e)
         {
             string medName = txtMeds.Text.Trim();
             decimal maxDosage = nmbrMaxDosage.Value;
@@ -51,12 +74,19 @@ namespace CSCI_463_ODMS_Project
                     }
                 }
 
-                string record = $"{medName},{maxDosage}";
-                File.AppendAllText(_medsFile, record + Environment.NewLine);
+                File.AppendAllText(_medsFile, $"{medName},{maxDosage}" + Environment.NewLine);
+
+                string dateStr = DateTime.Now.ToString("yyyy-MM-dd");
+                File.AppendAllText(_inventoryFile, $"{medName},100,{dateStr}" + Environment.NewLine);
+
+                string auditEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss},{_userName},Created new medication: {medName} with max dosage {maxDosage}mg.";
+                File.AppendAllText(_auditFile, auditEntry + Environment.NewLine);
+
+                MessageBox.Show($"{medName} added to system, inventory, and audit log.", "Success");
 
                 txtMeds.Clear();
                 nmbrMaxDosage.Value = nmbrMaxDosage.Minimum;
-                MessageBox.Show($"{medName} has been added to the system.", "Success");
+
                 LoadMedications();
             }
             catch (Exception ex)
@@ -76,8 +106,9 @@ namespace CSCI_463_ODMS_Project
             dgvMedications.Columns.Clear();
             dgvMedications.Columns.Add("Name", "Medication Name");
             dgvMedications.Columns.Add("MaxDosage", "Max Dosage (mg)");
-
             dgvMedications.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvMedications.ReadOnly = true;
+            dgvMedications.AllowUserToAddRows = false;
         }
 
         private void LoadMedications(string filter = "")

@@ -26,9 +26,17 @@ namespace CSCI_463_ODMS_Project
             navigationSidebar1.MedicationsRequested += (s, ev) =>
             {
                 contentPanel.Controls.Clear();
-                var meds = new medicationSearch(_userRole);
+                var meds = new medicationSearch(_userName, _userRole);
                 meds.Dock = DockStyle.Fill;
                 contentPanel.Controls.Add(meds);
+            };
+
+            navigationSidebar1.PatientRequested += (s, ev) =>
+            {
+                contentPanel.Controls.Clear();
+                var patients = new patientSearchPage();
+                patients.Dock = DockStyle.Fill;
+                contentPanel.Controls.Add(patients);
             };
 
             navigationSidebar1.HomeRequested += (s, ev) =>
